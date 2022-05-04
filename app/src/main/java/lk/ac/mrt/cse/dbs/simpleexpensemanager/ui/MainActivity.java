@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         /***  Begin generating dummy data for In-Memory implementation  ***/
         try {
-            expenseManager = new persistentExpenseManager(this); //TODO: This is the place where this should pass as the context
+            expenseManager = new persistentExpenseManager(this);
         } catch (ExpenseManagerException e) {
             e.printStackTrace();
         }
