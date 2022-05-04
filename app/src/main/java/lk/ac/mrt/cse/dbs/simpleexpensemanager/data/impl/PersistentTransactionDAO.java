@@ -10,6 +10,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,12 +62,14 @@ public class PersistentTransactionDAO implements TransactionDAO {
 
 
         if(cursor.moveToFirst()){
-            try {
-                date = dateFormat.parse(cursor.getString(1).toString());
-            } catch (ParseException e) {
-            }
 
             do{
+
+                try {
+                    date = dateFormat.parse(cursor.getString(1).toString());
+                } catch (ParseException e) {
+                }
+
                 allTransaction.add(new Transaction(date, cursor.getString(2), ExpenseType.valueOf(cursor.getString(3)), cursor.getDouble(4)));
             } while(cursor.moveToNext());
         }
