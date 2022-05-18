@@ -55,14 +55,19 @@ public class ApplicationTest{
         Calendar calendar = Calendar.getInstance();
         calendar.set(2022, 05, 17);
         Date transactionDate = calendar.getTime();
-        expenseManager.getTransactionsDAO().logTransaction(transactionDate,"500",ExpenseType.INCOME,10000.0);
+
+        Random rand = new Random();
+        String randAccountNo = String.valueOf(rand.nextInt(10000));
+
+        expenseManager.getTransactionsDAO().logTransaction(transactionDate,randAccountNo,ExpenseType.INCOME,20000.0);
 
         List<Transaction> transactionList=expenseManager.getTransactionLogs();
+
         for (Transaction t:transactionList) {
-            if(t.getAccountNo().equals("500")){
-                Assert.assertEquals(t.getAccountNo(),"500");
+            if(t.getAccountNo().equals(randAccountNo)){
+                Assert.assertEquals(t.getAccountNo(),randAccountNo);
                 Assert.assertEquals(t.getExpenseType(),ExpenseType.INCOME);
-                Assert.assertEquals(t.getAmount(),10000.0,0.0);
+                Assert.assertEquals(t.getAmount(),20000.0,0.0);
             }
         }
     }
