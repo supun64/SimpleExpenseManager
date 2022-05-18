@@ -24,6 +24,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -32,6 +33,7 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.ExpenseManager;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.exception.ExpenseManagerException;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.persistentExpenseManager;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Transaction;
 
 
 /**
@@ -49,23 +51,24 @@ public class ApplicationTest{
     }
 
     @Test
-    public void testAddTransaction(){
-        // This get holds the previous transaction log count
-        int previousTransactionCount = expenseManager.getTransactionLogs().size();
+    public void testTransactionLog(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2022, 05, 17);
+        Date transactionDate = calendar.getTime();
+        expenseManager.getTransactionsDAO().logTransaction(transactionDate,"500",ExpenseType.INCOME,10000.0);
 
-        expenseManager.getTransactionsDAO().logTransaction(
-                new Date(),
-                "190375K",
-                ExpenseType.EXPENSE,
-                12000);
-
-        int newTransactionCount = expenseManager.getTransactionLogs().size();
-
-        // This will ensure that a transaction is added
-        Assert.assertEquals(previousTransactionCount + 1, newTransactionCount);
-
-
+        List<Transaction> transactionList=expenseManager.getTransactionLogs();
+        for (Transaction t:transactionList) {
+            if(t.getAccountNo().equals("500")){
+                Assert.assertEquals(t.getAccountNo(),"500");
+                Assert.assertEquals(t.getExpenseType(),ExpenseType.INCOME);
+                Assert.assertEquals(t.getAmount(),10000.0,0.0);
+            }
+        }
     }
+
+
+
 
     @Test
     public void testAddAccount(){
