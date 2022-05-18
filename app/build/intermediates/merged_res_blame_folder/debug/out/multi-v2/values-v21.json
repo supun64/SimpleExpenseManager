@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\MobileApplications\\SimpleExpenseManager-2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "F:\\MobileApplications\\SimpleExpenseManager-testCase\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\supun\\.gradle\\caches\\transforms-2\\files-2.1\\45642fd0a6138345441bf0a6b6a7b84e\\support-compat-26.1.0\\res\\values-v21\\values-v21.xml",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "F:\\MobileApplications\\SimpleExpenseManager-2\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "source": "F:\\MobileApplications\\SimpleExpenseManager-testCase\\app\\src\\main\\res\\values-v21\\styles.xml",
                     "from": {
                         "startLines": "18",
                         "startColumns": "4",

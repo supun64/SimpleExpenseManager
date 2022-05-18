@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\MobileApplications\\SimpleExpenseManager-2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "F:\\MobileApplications\\SimpleExpenseManager-testCase\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
                     "source": "C:\\Users\\supun\\.gradle\\caches\\transforms-2\\files-2.1\\d1d1709d55c8ab5fa359ce49bd908eb5\\design-26.1.0\\res\\values-land\\values-land.xml",
